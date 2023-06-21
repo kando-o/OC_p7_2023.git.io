@@ -1,4 +1,4 @@
-$borderRed: red solid 1px;
+$borderRed: rgba(20, 223, 230, 0.96) solid 1px;
 $radius10: 10px;
 $radius20: 20px;
 
@@ -23,7 +23,8 @@ body {
 
 	.topPage {
 		height: 700px;
-		background: url(/Assets/image/Header/lampos-aritonang-24gR_9lCdes-unsplash\ 1.jpg) top / cover no-repeat;
+		background: url(../Assets/image/Header/lampos-aritonang-24gR_9lCdes-unsplash\ 1.jpg) top / cover no-repeat;
+		position: relative;
 
 		&__headerTitre{
 			display: flex;
@@ -53,7 +54,7 @@ body {
 			font-weight: 400;
 			font-family: 'Anton';
 			text-align: center;
-			top: 40%;
+			top: 45%;
 			right: 50%;
 			transform: translate(50%, -50%);
 			color: #FFD15B;
@@ -61,7 +62,7 @@ body {
 
 		&__search {
 			position: absolute;
-			bottom: 370px;
+			bottom: 25%;
 			right: 50%;
 			transform: translate(50%, -50%);
 			width: 950px;
@@ -144,18 +145,23 @@ body {
 				object-fit: cover;
 				height: 253px;
 			}
-
+			
 			figure {
-
 				height: 730px;
 			}
+
 			figcaption {
-				margin: 2rem;
+				margin: 1.5rem;
 				
 				p {
+					display: -webkit-box;
 					font-size: 14px;
-					Line-height: 25px;
+					Line-height: 20px;
+					-webkit-line-clamp: 4;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
 				}
+
 				// Recette
 				p:nth-child(2) {
 					color: #7A7A7A;
@@ -204,11 +210,11 @@ body {
 		}
 
 		&__itemsIngredients {
-			margin-bottom: 2rem;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 3;
-			justify-content: center;
+			margin-bottom: 2rem;
+			border: $borderRed;
+
 
 		}
 
