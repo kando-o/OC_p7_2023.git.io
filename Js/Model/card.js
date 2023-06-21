@@ -36,8 +36,6 @@ export class Ingredient {
 	get unit () { return this._unit }
 }
 
-
-
 export default class Card  {
 
 	constructor (data) {
@@ -92,18 +90,16 @@ export default class Card  {
 								})
 								.join('')
 							}
-							</h5>
-							</div>
-							</figcaption>
-							</figure>
+						</h5>
+					</div>
+				</figcaption>
+			</figure>
 							
-							`;
-							// ${this._ingredients}
+		`;
 
 		this._element = element
 
 		return this
-		
 	}
 
 	/**
@@ -149,7 +145,7 @@ export default class Card  {
    get ustensils () { return this._ustensils }
 
    static _init () {
-	   Card.countCards = 0;
+		Card.countCards = 0;
    }
 }
 
