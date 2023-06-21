@@ -1,7 +1,6 @@
 const API = {
-	 URL: "/",
+	 URL: "./",
 	 request_data: "Data/PetitsPlats2.0-main/recipes.js"
-
 }
 
 export const getData = () => {
