@@ -3,47 +3,66 @@ import Card from "/Js/Components/tags.js";
 
 export default class Tags {
 	
-	constructor (cards, data) {
-		this._ingredients = data.map(ing => ing.ingredients).map(u => u);
-		this._ustensils = data.map(u => u.ustensils );
-		this._appliance = data.map(a => a.appliance);
+	constructor (cards) {
+		this._ingredients = cards.map(ing => ing.ingredients).map(u => u);
+		this._ustensils = cards.map(u => u.ustensils );
+		this._appliance = cards.map(a => a.appliance);
 	}
 
-	getIngredient () {
-		const ingredients = this._ingredients	
-		const optionsIngredients = document.getElementById('ingredients')
-        console.log(optionsIngredients);
-		// console.log(ingredients.map(el => el.forEach(u => console.log(u))));
-		
-
-		ingredients.map(el => {
-			const testel = el.concat(el)
-			console.log(testel);
-			
-		  const mergeTagIngredient = el.map(i => i.ingredient);
-		  const TagIngredient = Array.from(new Set(mergeTagIngredient))
-
-		//   console.log(mergeTagIngredient);
-		//   console.log(TagIngredient);
-		  
-		})
-		
-		// return optionsIngredients.textContent += ` <option class="appareils" value="appareils">${el.ingredient}</option> `
-	}
-
+	/**
+	 * inject the options in the select *Appareils*
+	 * @param {Array} arrayCards | Array of recipies 
+	 */
 	getAppliance () {
+
+		//dédoublonage du tableau
+		const mergeArrayAppliance = Array.from(new Set(this._appliance))
 		const optionsAppareils = document.getElementById('appareils')
-		const mergeTagAppliance = Array.from(new Set(this._appliance))
-		// console.log(mergeTagAppliance);
-		return mergeTagAppliance.forEach(el => {
+
+		return mergeArrayAppliance.forEach(el => {
 			optionsAppareils.innerHTML += ` <option class="appareils" value="appareils">${el}</option> `
 		})
 	}
 
-} 
+	/**
+	 * inject the options in the select *Ustensils*
+	 * @param {Array} arrayCards | Array of recipies 
+	 */
+	getUstensil (arrayCards) {
 
-// // faire une class
-// dans cette classe recupperer les différents Tags
-// ingredients
-// ustensile
-// appareils
+		const arrayUstensil = []
+		const optionsUstensil = document.getElementById('ustensiles')
+
+		arrayCards.map(el => {
+			el.forEach(ustensils => arrayUstensil.push(ustensils))
+		})
+
+		const mergeArrayUstensil = Array.from(new Set(arrayUstensil))
+
+		mergeArrayUstensil.forEach(el => {
+			optionsUstensil.innerHTML += ` <option class="appareils" value="appareils">${el}</option> `
+		})
+	}
+
+	/**
+	 * inject the options in the select *Ustensils*
+	 * @param {Array} arrayCards | Array of recipies 
+	 */
+	getIngredient () {
+
+		const ingredients = this._ingredients	
+		const optionsIngredients = document.getElementById('ingredients')
+		const arrayIngredient = []
+
+		ingredients.map(el => {
+			return arrayIngredient.push(el[1].ingredient)
+		})
+
+		const mergeArrayIngredients = Array.from(new Set(arrayIngredient))
+		
+		return mergeArrayIngredients.forEach(el => {
+			optionsIngredients.innerHTML += ` <option class="ingredients" value="ingredients">${el}</option> `
+		})		
+	}
+}
+
