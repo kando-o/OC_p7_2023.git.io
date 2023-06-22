@@ -9,17 +9,24 @@ window.onload = () => {
 	
 	getData()
 	.then(recipes => {
+
 		const cards = recipes.map( recipe => {
+			
 			const card = new Card(recipe)
+			
 			card.name = ""
 			card.buildHtml()
 			parent.appendChild(card.element)
+			
 			return card
 		})
-		const testTags = new Tags(cards, recipes)
+
+		const addOptionsTags = new Tags(cards)
 		
 		cardsCounter(cards)
-		testTags.getIngredient()
-		testTags.getAppliance()
+		
+		addOptionsTags.getIngredient()
+		addOptionsTags.getAppliance()
+		addOptionsTags.getUstensil(cards.map(el=> {return el.ustensils}))
 	})		
 }
