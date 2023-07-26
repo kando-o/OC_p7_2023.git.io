@@ -33,8 +33,10 @@
 			
 			<div class="topPage__search">
 				<input class="topPage__inputSearch" type="text">
-				<img class="topPage__imageSearch" src="./Assets/svg/svgSearch.svg" alt="Image de recherche">
-				
+				<svg class="topPage__imageSearch" width="64px" height="64px" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="10" cy="10" r="9.5" />
+					<line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" />
+				</svg>
 			</div>
 			
 		</section>
@@ -42,17 +44,23 @@
 		<section class="recettes">
 
 			<header class="recettes__headerTag">
-				<div class="recettes__tag">
-					<select class="itemsTag js-example-basic-single" style="width: 195px" name="ingredients" id="ingredients">
-						<option class="ingredients" value="ingredients">Ingredients</option>
-					</select>
-					<select class="itemsTag js-example-basic-single" style="width: 195px" name="appareils" id="appareils">
-						<option class="appareils" value="appareils">Appareils</option>
-					</select>
-					<select class="itemsTag js-example-basic-single" style="width: 195px" name="ustensiles" id="ustensiles">
-						<option class="ustensiles" value="ustensiles">Ustensils</option>
-					</select>
-				</div>
+				<ul class="recettes__tag">
+					<li>
+						<select class="recettes__itemsTag js-example-basic-single" style="width: 150px" name="ingredients" id="ingredients">
+							<option class="ingredients" value="ingredients">Ingredients</option>
+						</select>
+					</li>
+					<li>
+						<select class="recettes__itemsTag js-example-basic-single" style="width: 150px" name="appareils" id="appareils">
+							<option class="appareils" value="appareils">Appareils</option>
+						</select>
+					</li>
+					<li>
+						<select class="recettes__itemsTag js-example-basic-single" style="width: 150px" name="ustensiles" id="ustensiles">
+							<option class="ustensiles" value="ustensiles">Ustensils</option>
+						</select>
+					</li>
+				</ul>
 			</header>
 				
 			<asside class="recettes__nbrRecette">
@@ -70,6 +78,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script src="./Js/index.js" type="module"></script>
-	
+
 </body>
 </html>
