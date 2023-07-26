@@ -79,20 +79,20 @@ body {
 		
 		&__imageSearch {
 			position: absolute;
-			right: 10px;
-			top: 5px;
+			right: 6px;
+			top: 4px;
+			border-radius: 1rem;
 			background: #000;
-			padding: 1rem;
-			border-radius: 10px;
-			transition: .2s ease-in-out;
-
+			padding: 10px;
+			 transition: .3s ease-in-out; 
+			stroke: white;
+			stroke-width: 1;
 			&:hover {
 				background: #FFD15B;
-				
-				svg {
-					stroke: #000;
-				}
+				stroke: #000;
+				fill: #FFD15B;
 			}
+
 		}
 
 	}
@@ -105,26 +105,48 @@ body {
 		justify-content: center;
 		margin: 2rem 100px;		
 		max-width: 1450px;
+
+		&__containerTagsDynamique {
+			width: 100%;
+			margin-top: 1rem;
+			border: #7A7A7A 1px solid;
+			height: 5rem;
+
+		}
 		
 		&__headerTag {
 			width: 650px;
 			gap: 15px;
 		}
-
+		
 		
 		&__tag {
-			gap: 66px;
+			position: relative;
+			width: 560px;
 			display: flex;
-			justify-content: space-around;
-			
-			.itemsTag {
-				width: 188px;
+			justify-content: space-between;
+			list-style: none;
+		}	
+		
+		.select2-container--default{
+			.select2-selection--single{
+
+				width: 150px;
 				height: 56px;
-				border-radius: 10px;
-				text-indent: 10px;
-				font-size: 16px;
-				border: none;
-			}	
+				border-radius: 11px;
+				gap: 63px;
+				text-align: start;
+				padding: 17px 5px;
+
+				.select2-selection__rendered {
+					line-height: 20px;	
+				}
+				
+				.select2-selection__arrow{
+					top: 15px
+				}
+			}
+
 		}
 
 		&__nbrRecette {
@@ -141,6 +163,13 @@ body {
 			grid-template-columns: 1fr 1fr 1fr;
 		}
 
+		.hidden {
+			display: none;
+		}
+		.show {
+			display: block;
+		}
+
 		&__card {
 			width: 380px;
 			position: relative;
@@ -149,6 +178,8 @@ body {
 			border-radius: $radius20;
 			overflow: hidden;
 			background: whitesmoke;
+
+			
 
 			img {
 				width: 100%;
@@ -230,3 +261,4 @@ body {
 
 	}
 }
+

@@ -69,18 +69,19 @@ body {
 }
 .container .topPage__imageSearch {
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 6px;
+  top: 4px;
+  border-radius: 1rem;
   background: #000;
-  padding: 1rem;
-  border-radius: 10px;
-  transition: 0.2s ease-in-out;
+  padding: 10px;
+  transition: 0.3s ease-in-out;
+  stroke: white;
+  stroke-width: 1;
 }
 .container .topPage__imageSearch:hover {
   background: #FFD15B;
-}
-.container .topPage__imageSearch:hover svg {
   stroke: #000;
+  fill: #FFD15B;
 }
 .container .recettes {
   display: flex;
@@ -91,22 +92,36 @@ body {
   margin: 2rem 100px;
   max-width: 1450px;
 }
+.container .recettes__containerTagsDynamique {
+  width: 100%;
+  margin-top: 1rem;
+  border: #7A7A7A 1px solid;
+  height: 5rem;
+}
 .container .recettes__headerTag {
   width: 650px;
   gap: 15px;
 }
 .container .recettes__tag {
-  gap: 66px;
+  position: relative;
+  width: 560px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  list-style: none;
 }
-.container .recettes__tag .itemsTag {
-  width: 188px;
+.container .recettes .select2-container--default .select2-selection--single {
+  width: 150px;
   height: 56px;
-  border-radius: 10px;
-  text-indent: 10px;
-  font-size: 16px;
-  border: none;
+  border-radius: 11px;
+  gap: 63px;
+  text-align: start;
+  padding: 17px 5px;
+}
+.container .recettes .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 20px;
+}
+.container .recettes .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 15px;
 }
 .container .recettes__nbrRecette {
   position: absolute;
@@ -119,6 +134,12 @@ body {
 .container .recettes__galerieCards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.container .recettes .hidden {
+  display: none;
+}
+.container .recettes .show {
+  display: block;
 }
 .container .recettes__card {
   width: 380px;
