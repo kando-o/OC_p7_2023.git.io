@@ -45,7 +45,7 @@ export default class Card  {
 		this._time = data.time;
 		this._ingredients = data.ingredients.map(ing => new Ingredient(ing));
 		this._ustensils = data.ustensils;
-		this._appliance = [data.appliance];
+		this._appliances = [data.appliance];
 		
 		this._element = null;
 		this._id = 'id_card_'+(++Card.countCards);
@@ -67,7 +67,7 @@ export default class Card  {
 
 	buildHtml () {
 		const element = document.createElement('div')
-		
+		element.classList.add('cardGalerie')
 		element.innerHTML += 
 		`
 			<figure class='recettes__card' id='${this._id}'>
@@ -93,12 +93,10 @@ export default class Card  {
 						</h5>
 					</div>
 				</figcaption>
-			</figure>
-							
+			</figure>			
 		`;
 
 		this._element = element
-
 		return this
 	}
 
@@ -116,12 +114,6 @@ export default class Card  {
 	 * @return {string}
 	 */
 	get name () { return this._name }
-
-	set name ( pName ) {
-		if (pName.length>3) {
-			this._name = pName;
-		}
-	}
 	
 	/**
 	* @return {string}
@@ -136,7 +128,7 @@ export default class Card  {
    /**
 	* @return {string}
     */
-   get appliance () { return this._appliance[0] }
+   get appliances () { return this._appliances }
 
    /**
 	* returns the list of ustentils
