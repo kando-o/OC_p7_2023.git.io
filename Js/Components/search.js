@@ -1,5 +1,6 @@
 export default class Search {
 	constructor (cards) {
+
 		let set = new Set()
 		cards.forEach(n => set.add(n.name))
 		this.name = Array.from(set)
@@ -9,31 +10,66 @@ export default class Search {
 		this.description = Array.from(setDescription)
 
 		let setIngredient = new Set()
-		cards.forEach(ing => ing.ingredients.forEach(i => setIngredient.add(i._name)))
+		cards.forEach(ing => ing.ingredients.forEach(i => setIngredient.add(i.name)))
 		this.ingredient = Array.from(setIngredient)
 
+		this.cards = cards
 	}
 
-	searchGlobal () {
+	/**
+	 * 
+	 * @param {Array} cards | Array of items that contains all 50 recpes 
+	 * @param {String} inputUser | Value given by the user 
+	 * @returns cardFilter | Card filter by the user value
+	 */
+	matchCard = (cards, inputUser) => {
+			
+		cards = this.cards
+		const cardFilter = cards.filter(card => {
+			return card.name.toLowerCase().includes(inputUser) ||
+			card.description.toLowerCase().includes(inputUser) ||
+			card.ingredients.find(i => i.ingredient.toLowerCase().includes(inputUser))				
+		})
+
+		return cardFilter
+	}
+
+	/**
+	 * 
+	 * @param {String} inputUser | Value given by the user
+	 * @returns this.matchCard => cards
+	 */
+ 	matchInputUser (inputUser) {
 		
-		const name = this.name
+		const cards = this.cards
 
+		if (inputUser.length >= 3 ) {
+			return this.matchCard(cards, inputUser)
+		} else {
+			return cards
+		}
+	}
+
+	/**
+	 * 
+	 * @param {Function} filtered | Function matchInputUser(inputUser)
+	 * @returns cardFilter | Card filter by user tags
+	 */
+	matchTags (filtered) {
+		// TODO : add fitered
+		// si filtered == true alors lance filtered by search & tags
+
+		return filtered
+	}
+
+	/**
+	 * 
+	 * @param {Function} onFilter | function of filter 
+	 */
+	searchGlobal (onFilter) {
+	
 		document.querySelector('.topPage__inputSearch').addEventListener('input', (e) => {
-			if (e.target.value.length > 3) {
-
-				const resultatIngredient = name.find(n => {return n.toLowerCase() === e.target.value.toLowerCase() })
-
-				console.log(resultatIngredient);
-			}
-
+			onFilter()
 		})
 	}
-
-	
 }
-
-// faire un event à l'input sur la bare de recherche
-// quand la barre de rechercher à plus de 3 carractère lancer la fonction qui va chercher dans les différent tab 
-// - data.description
-// - data.titre
-// - data.ingredient
