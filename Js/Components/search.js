@@ -22,9 +22,9 @@ export default class Search {
 	 * @param {String} inputUser | Value given by the user 
 	 * @returns cardFilter | Card filter by the user value
 	 */
-	matchCard = (cards, inputUser) => {
-			
-		cards = this.cards
+	static match (cards, inputUser) {
+		if (!inputUser || inputUser.length < 3 || !cards || cards.length<1) return cards
+
 		const cardFilter = cards.filter(card => {
 			return card.name.toLowerCase().includes(inputUser) ||
 			card.description.toLowerCase().includes(inputUser) ||
@@ -32,41 +32,14 @@ export default class Search {
 		})
 
 		return cardFilter
-	}
-
-	/**
-	 * 
-	 * @param {String} inputUser | Value given by the user
-	 * @returns this.matchCard => cards
-	 */
- 	matchInputUser (inputUser) {
 		
-		const cards = this.cards
-
-		if (inputUser.length >= 3 ) {
-			return this.matchCard(cards, inputUser)
-		} else {
-			return cards
-		}
-	}
-
-	/**
-	 * 
-	 * @param {Function} filtered | Function matchInputUser(inputUser)
-	 * @returns cardFilter | Card filter by user tags
-	 */
-	matchTags (filtered) {
-		// TODO : add fitered
-		// si filtered == true alors lance filtered by search & tags
-
-		return filtered
 	}
 
 	/**
 	 * 
 	 * @param {Function} onFilter | function of filter 
 	 */
-	searchGlobal (onFilter) {
+	listener (onFilter) {
 	
 		document.querySelector('.topPage__inputSearch').addEventListener('input', (e) => {
 			onFilter()
