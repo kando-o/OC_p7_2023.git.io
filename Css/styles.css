@@ -69,11 +69,11 @@ body {
 }
 .container .topPage__imageSearch {
   position: absolute;
-  right: 6px;
+  right: 4px;
   top: 4px;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   background: #000;
-  padding: 10px;
+  padding: 8px;
   transition: 0.3s ease-in-out;
   stroke: white;
   stroke-width: 1;
@@ -93,10 +93,24 @@ body {
   max-width: 1450px;
 }
 .container .recettes__containerTagsDynamique {
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200%;
   margin-top: 1rem;
-  border: #7A7A7A 1px solid;
-  height: 5rem;
+  gap: 20px 60px;
+}
+.container .recettes__labelTag {
+  display: flex;
+  justify-content: space-between;
+  min-width: 203px;
+  position: relative;
+  padding: 10px 17px;
+  border-radius: 10px;
+  background: #FFD15B;
+  letter-spacing: 2px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 900;
 }
 .container .recettes__headerTag {
   width: 650px;
@@ -104,23 +118,24 @@ body {
 }
 .container .recettes__tag {
   position: relative;
-  width: 560px;
+  width: 760px;
   display: flex;
   justify-content: space-between;
   list-style: none;
 }
 .container .recettes .select2-container--default .select2-selection--single {
-  width: 150px;
   height: 56px;
   border-radius: 11px;
-  gap: 63px;
   text-align: start;
   padding: 17px 5px;
 }
 .container .recettes .select2-container--default .select2-selection--single .select2-selection__rendered {
   line-height: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
-.container .recettes .select2-container--default .select2-selection--single .select2-selection__arrow {
+.container .recettes .select2-container--default .select2-selection--single.select2-selection__arrow {
   top: 15px;
 }
 .container .recettes__nbrRecette {
@@ -143,6 +158,7 @@ body {
 }
 .container .recettes__card {
   width: 380px;
+  height: 731px;
   position: relative;
   margin: 2rem 0;
   box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
@@ -164,32 +180,29 @@ body {
 .container .recettes__card figcaption p {
   display: -webkit-box;
   font-size: 14px;
-  Line-height: 20px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.container .recettes__card figcaption p:nth-child(2) {
-  color: #7A7A7A;
+.container .recettes__card figcaption p:nth-child(even) {
+  margin: 1.5rem 0 1rem;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 2.5px;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-size: 16px;
-}
-.container .recettes__card figcaption p:nth-child(3) {
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  margin-bottom: 1rem;
-  font-size: 14px;
-}
-.container .recettes__card figcaption h4 {
-  margin: 1.5rem 0;
   color: #7A7A7A;
-  font-size: 16px;
-  line-height: 16px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.container .recettes__contentRecettes {
+  margin-bottom: 2rem;
+}
+.container .recettes__pName {
+  font-weight: 700;
+}
+.container .recettes__PquantityPunit {
+  color: #7A7A7A;
+  margin: 1.5rem 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 .container .recettes__temps {
   position: absolute;
@@ -210,6 +223,40 @@ body {
 .container .recettes__itemsIngredients {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 2rem;
-  border: rgba(20, 223, 230, 0.96) solid 1px;
+  margin: 0 auto;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: #FFD15B !important;
+  color: #000 !important;
+}
+
+.select2-container--default .select2-results__option--selected {
+  background-color: #fff !important;
+}
+
+.select2-results__option[aria-selected] {
+  font-weight: 600;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  margin: 0.5rem auto;
+  outline: none;
+  color: #7A7A7A;
+  height: 36px;
+  font-size: 14px;
+  border: 1px solid #C6C6C6 !important;
+  border-radius: 2px;
+  background: right 44%/38% 30% no-repeat url(/Assets/svg/buttoncloseSearch.svg), right 40%/14% 50% no-repeat url(/Assets/svg/minisvgSearch.svg);
+  cursor: pointer;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  position: absolute;
+  top: 13px !important;
+  right: 1px;
 }/*# sourceMappingURL=styles.css.map */
