@@ -48,19 +48,18 @@ window.onload = () => {
 
 		const onFilter = () => {
 			const input = document.querySelector('.topPage__inputSearch').value
-			const filtered = search.matchInputUser(input)
-			const filteredByTags = tags.matchTags(filtered)
-			const filteredByInputAndTags = tags.matchInputTags(filteredByTags)
-
-			displayCards(filteredByTags)
-			tags.displayTags(filteredByTags)
-			tags.displayTags(filteredByInputAndTags)
+			const filteredCards = tags.match(cards)
+			const finalCards = Search.match(filteredCards, input)
+			
+			displayCards(finalCards)
+			tags.display(finalCards)
+			cardsCounter(finalCards)
 		}
 
-		search.searchGlobal(onFilter)
+		search.listener(onFilter)
 		tags.builgTagsHtml()
-		tags.eventTag(onFilter)
+		tags.listeners(onFilter)
 
 		onFilter()
-	})		
+	})
 }
