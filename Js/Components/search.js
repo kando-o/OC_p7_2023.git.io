@@ -1,17 +1,24 @@
 export default class Search {
 	constructor (cards) {
 
-		let set = new Set()
-		cards.forEach(n => set.add(n.name))
-		this.name = Array.from(set)
+		let set = new Set();
+		for (const card of cards) {
+			set.add(card.name);
+		}
+		this.name = Array.from(set);
 
 		let setDescription = new Set()
-		cards.forEach(d => setDescription.add(d._description))
+		for (const card of cards) {
+			setDescription.add(card._description)
+		}
 		this.description = Array.from(setDescription)
 
-		let setIngredient = new Set()
-		cards.forEach(ing => ing.ingredients.forEach(i => setIngredient.add(i.name)))
-		this.ingredient = Array.from(setIngredient)
+		let setIngredient = new Set();
+		for (const ing of cards) {
+		for (const i of ing.ingredients) {
+			setIngredient.add(i.name);
+		}}
+		this.ingredient = Array.from(setIngredient);
 
 		this.cards = cards
 	}
@@ -25,11 +32,18 @@ export default class Search {
 	static match (cards, inputUser) {
 		if (!inputUser || inputUser.length < 3 || !cards || cards.length<1) return cards
 
-		const cardFilter = cards.filter(card => {
-			return card.name.toLowerCase().includes(inputUser) ||
-			card.description.toLowerCase().includes(inputUser) ||
-			card.ingredients.find(i => i.ingredient.toLowerCase().includes(inputUser))				
-		})
+		const cardFilter = [];
+		for (const card of cards) {
+
+			const lowerInputUser = inputUser.toLowerCase();
+			const isNameMatch = card.name.toLowerCase().includes(lowerInputUser);
+			const isDescriptionMatch = card.description.toLowerCase().includes(lowerInputUser);
+			const isIngredientMatch = card.ingredients.some(i => i.ingredient.toLowerCase().includes(lowerInputUser));
+
+			if (isNameMatch || isDescriptionMatch || isIngredientMatch) {
+				cardFilter.push(card);
+			}
+		}
 
 		return cardFilter
 		
