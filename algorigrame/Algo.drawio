@@ -1,44 +1,123 @@
 <mxfile host="65bd71144e">
     <diagram id="Ywg1XmnNjfJVQIE7IwrZ" name="Page-1">
-        <mxGraphModel dx="884" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="706" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="8" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2" target="4" edge="1">
+                <mxCell id="22" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="21">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="utilisateur tap 3 lettres ou plus" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="280" width="190" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="4" edge="1">
+                <mxCell id="23" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="17">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="utilisateur choisis un mot clé&lt;br&gt;ingrédients&lt;br&gt;ustensiles&lt;br&gt;appareils" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="590" y="280" width="200" height="90" as="geometry"/>
+                <mxCell id="2" value="Fonction de tri par tag choisi par l'user" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="320" width="190" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="edgeStyle=none;html=1;" parent="1" source="4" target="9" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="13" value="" style="edgeStyle=none;html=1;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="386.0344827586207" y="520" as="sourcePoint"/>
+                        <mxPoint x="371.55172413793116" y="510" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="4" value="lance la fonction recherche" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="440" width="190" height="60" as="geometry"/>
+                <mxCell id="14" value="" style="edgeStyle=none;html=1;" parent="1" source="10" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="425" y="180" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="18" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="9" target="17" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="9" value="recherche dans la data la bonne donnée puis la renvoie" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="560" width="190" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="14" value="" style="edgeStyle=none;html=1;" parent="1" source="10" target="11" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="10" value="fetch la data" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="10" value="Recuperation de la donnée" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="330" y="40" width="190" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="création de la carte dans la galerie" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="180" width="190" height="60" as="geometry"/>
+                <mxCell id="17" value="renvoi la recette qui correspond à l'input taper par l'user ou&lt;br&gt;la recette qui correspond au tag donner par l'user ou&lt;br&gt;la recette qui correspond au tag plus à l'input de l'user" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="460" width="190" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="quand données trouvée supprimer la galerie pour rendre seulement les carte avec les bonnes données" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="40" y="660" width="190" height="70" as="geometry"/>
+                <mxCell id="20" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="19" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Fonction de trie pas input de l'user dans la barre de recherche" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="180" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="fonction de comptagesdes&amp;nbsp; recettes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="590" y="320" width="190" height="90" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="yM8WT9O8zzaGfuUC839v" name="Page-2">
+        <mxGraphModel dx="784" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-6" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-1" target="dkmTVdu8kwhCrT7Hc9vX-4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-1" value="Recuperation de la donnée" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="40" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-20" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-2" target="dkmTVdu8kwhCrT7Hc9vX-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-2" value="Fonction&lt;br&gt;&amp;nbsp;recherche principale&lt;br&gt;+&lt;br&gt;Foncton&amp;nbsp;&lt;br&gt;rechercher tag" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="730" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Vf0ULdamkLgosnd0yOu-1" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-3" target="dkmTVdu8kwhCrT7Hc9vX-5">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="870" y="685"/>
+                            <mxPoint x="680" y="685"/>
+                            <mxPoint x="680" y="860"/>
+                            <mxPoint x="598" y="860"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-3" value="Fonction&lt;br&gt;recherche par tag(s)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="775" y="380" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-18" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-4" target="dkmTVdu8kwhCrT7Hc9vX-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-23" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-4" target="dkmTVdu8kwhCrT7Hc9vX-5">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="840" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="340" y="425"/>
+                            <mxPoint x="340" y="945"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-4" value="Fonction&amp;nbsp;&lt;br&gt;&amp;nbsp;recherche principale" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="380" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Vf0ULdamkLgosnd0yOu-3" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-5" target="3Vf0ULdamkLgosnd0yOu-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-5" value="retourne les ou la recette" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="455" y="900" width="190" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-14" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-9">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="840" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-9" value="si &amp;gt;= 3 carractères" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="190" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-15" value="ou bien" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="210" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-17" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="dkmTVdu8kwhCrT7Hc9vX-16" target="dkmTVdu8kwhCrT7Hc9vX-3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-16" value="si tag" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="190" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-19" value="ou bien" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="510" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="dkmTVdu8kwhCrT7Hc9vX-24" value="si &amp;gt;= 3 carractères&lt;br&gt;+&lt;br&gt;tag(s)" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="600" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Vf0ULdamkLgosnd0yOu-2" value="Fonction&lt;br&gt;contage des cartes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="775" y="900" width="190" height="90" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
