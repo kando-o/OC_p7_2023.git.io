@@ -25,12 +25,53 @@ class Tags {
 		const recettesHeaderTag = document.querySelector('.recettes__headerTag')
 		
 		const containerTagsDynamique = document.createElement('div')
-		containerTagsDynamique.classList.add('recettes__containerTagsDynamique')
+		containerTagsDynamique.classList.add('recettes__containerTags')
 		
 		this.tagsContainer = containerTagsDynamique
 		const btnlabelClose = document.createElement('div')
-		btnlabelClose.classList.add('.testTag')
 		
+		// creat container for svg
+		const containerSvg = document.createElement('div')
+		containerSvg.classList.add('containerSvg')
+
+		// create svg search
+		const search = document.createElement('svg')
+		search.innerHTML = ` <svg class="containerSvg__item search" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5"/>
+		<line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
+		</svg>
+		`
+		// create svp close
+		const close = document.createElement('span')
+		close.innerHTML = `<span class="containerSvg__item close"> X </span>`
+		
+		// add svg in dropdown
+		const select2Selection = document.querySelectorAll('.select2-selection')
+		select2Selection.forEach( el => {
+				el.addEventListener('click', () => {
+					const select2Search = document.querySelector('.select2-search')
+					const select2Field = document.querySelectorAll('.select2-search ')
+					let buttonClose 
+
+					containerSvg.appendChild(close)
+					containerSvg.appendChild(search)
+					select2Search.appendChild(containerSvg)
+					
+					if (select2Search) {
+						
+						setTimeout(	() => {
+							buttonClose = select2Search.querySelector('.close')
+							if (buttonClose) {
+								buttonClose.addEventListener('click', () => {									
+									select2Search.querySelector('input').value = ''  
+									ingredient.innerHTML = ingredientOptions;
+								})
+							}
+						}, 1000)
+					}
+				})
+			}
+		)
 
 		recettesHeaderTag.appendChild(containerTagsDynamique)
 		
