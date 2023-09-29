@@ -118,12 +118,6 @@ class Tags {
 
 	}
 
-	display (cards) {
-		// hide all tags in selects
-		// traverse all cards
-		// hide tags not in cards
-	}
-
 	match (cards) {
 
 		if (!cards || cards.length<1) return cards
