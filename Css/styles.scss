@@ -1,4 +1,4 @@
-$borderRed: rgba(20, 223, 230, 0.96) solid 1px;
+$borderRed: rgba(230, 62, 20, 0.96) solid 1px;
 $radius10: 10px;
 $radius20: 20px;
 
@@ -15,9 +15,9 @@ body {
 .container {
 	display: flex;
 	justify-content: center;
+	max-width: 1440px;
 	margin: 0 auto;
 	flex-direction: column;
-	width: 1500px;
 	height: 100%;
 	background: #e2e2e2;
 
@@ -25,30 +25,22 @@ body {
 		height: 700px;
 		background: url(../Assets/image/Header/lampos-aritonang-24gR_9lCdes-unsplash\ 1.jpg) top / cover no-repeat;
 		position: relative;
-
-		&__headerTitre{
+		
+		&__titre {
 			display: flex;
-			color: whitesmoke;
-			text-transform: uppercase;
 			margin: 3rem;
 		}
 
 		&__svgTitle {
 			position: relative;
 			left: 4px;
-			top: 10px;
-
-			.strocke {
-				position: absolute;
-				top: 2px;
-				left: 1px;
-			}
+			top: 2px;
 		}
 
 		&__introduction {
 			position: absolute;
-			width: 890px;
-			font-size: 55px;
+			max-width: 890px;
+			font-size: 44px;
 			font-weight: 400;
 			font-family: 'Anton';
 			text-align: center;
@@ -70,6 +62,7 @@ body {
 		&__inputSearch {
 			position: relative;
 			font-size: 35px;
+			min-width: 300px;
 			width: 954px;
 			height: 72px;
 			border: none;
@@ -79,11 +72,11 @@ body {
 		
 		&__imageSearch {
 			position: absolute;
-			right: 6px;
+			right: 4px;
 			top: 4px;
-			border-radius: 1rem;
+			border-radius: .5rem;
 			background: #000;
-			padding: 10px;
+			padding: 8px;
 			 transition: .3s ease-in-out; 
 			stroke: white;
 			stroke-width: 1;
@@ -92,9 +85,7 @@ body {
 				stroke: #000;
 				fill: #FFD15B;
 			}
-
 		}
-
 	}
 
 	.recettes {
@@ -103,83 +94,98 @@ body {
 		flex-direction: column;
 		flex-wrap: wrap;
 		justify-content: center;
-		margin: 2rem 100px;		
+		margin: 2rem 6rem;		
 		max-width: 1450px;
-
-		&__containerTagsDynamique {
+	
+		&__containerTags {
+			display: flex;
+			flex-wrap: wrap;
 			width: 100%;
 			margin-top: 1rem;
-			border: #7A7A7A 1px solid;
-			height: 5rem;
+			gap: 20px 60px;
+		}
 
-		}
-		
-		&__headerTag {
-			width: 650px;
-			gap: 15px;
-		}
-		
-		
-		&__tag {
-			position: relative;
-			width: 560px;
+		&__labelTag {
 			display: flex;
 			justify-content: space-between;
+			min-width: 203px;
+			position: relative;
+			padding: 10px 17px;
+			border-radius: $radius10;
+			background: #FFD15B;
+			letter-spacing: 2px;
+			font-family: 'Manrope', sans-serif;
+			font-size: 14px;
+			font-weight: 900;
+		}
+
+		&__headerTag {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		
+		&__tag {
+		    position: relative;
+			width: 50%;
+			display: flex;
 			list-style: none;
+			justify-content: space-between;
 		}	
 		
 		.select2-container--default{
 			.select2-selection--single{
-
-				width: 150px;
 				height: 56px;
 				border-radius: 11px;
-				gap: 63px;
 				text-align: start;
 				padding: 17px 5px;
 
 				.select2-selection__rendered {
 					line-height: 20px;	
+					font-size: 18px;
+					font-weight: 600;
+					letter-spacing: 1px;
 				}
 				
-				.select2-selection__arrow{
+				&.select2-selection__arrow{
 					top: 15px
 				}
 			}
-
+			
 		}
 
 		&__nbrRecette {
-			position: absolute;
-			top: 1rem;
-			right: 0px;
+			display: flex;
 			font-family: 'Anton';
 			font-size: 21px;
 			font-weight: 400;
+			gap: 5px;
 		}
 
 		&__galerieCards {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
 
 		.hidden {
 			display: none;
 		}
+
 		.show {
 			display: block;
 		}
 
+		// Card
 		&__card {
-			width: 380px;
+			max-width: 380px;
+			height: 731px;
 			position: relative;
 			margin: 2rem 0;
 			box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
 			border-radius: $radius20;
 			overflow: hidden;
 			background: whitesmoke;
-
-			
 
 			img {
 				width: 100%;
@@ -197,45 +203,41 @@ body {
 				p {
 					display: -webkit-box;
 					font-size: 14px;
-					Line-height: 20px;
 					-webkit-line-clamp: 4;
 					-webkit-box-orient: vertical;
 					overflow: hidden;
 				}
 
-				// Recette
-				p:nth-child(2) {
-					color: #7A7A7A;
+				p:nth-child(even) {
+					margin: 1.5rem 0 1rem;
+					font-size: 12px;
 					font-weight: 700;
-					letter-spacing: 2.5px;
 					text-transform: uppercase;
-					margin-bottom: 1rem;
-					font-size: 16px;
-				}
-				//Texte recette
-				p:nth-child(3) {
-					font-weight: 400;
-					letter-spacing: 1.5px;
-					margin-bottom: 1rem;
-					font-size: 14px;
-				}
-
-				h4 {
-					margin: 1.5rem 0;
 					color: #7A7A7A;
-					font-size: 16px;
-					line-height: 16px;
-					letter-spacing: 2.5px;
-					text-transform: uppercase;
+					letter-spacing: 1.5px;
 				}
 			}
 		}
 
+		&__contentRecettes{
+			margin-bottom: 2rem;
+		}
+
+		&__pName {
+			font-weight: 700;
+		}
+
+		&__PquantityPunit{
+			color: #7A7A7A;
+			margin: 1.5rem 0;
+			font-size: 14px;
+			letter-spacing: .5px;
+		}
+		
 		&__temps {
 			position: absolute;
 			background: #FFD15B;
 			box-shadow: 0px 0px 5px #FFD15B;
-
 			padding: 5px 15px;
 			border-radius: 14px;
 			top: 21px;
@@ -253,12 +255,59 @@ body {
 		&__itemsIngredients {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			margin-bottom: 2rem;
-			border: $borderRed;
-
-
+			margin: 0 auto;
 		}
-
 	}
 }
 
+.containerSvg {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	
+	&__item {
+		&.close {
+			font-size: 10px;
+			font-weight: 600;
+			position: absolute;
+			top: 4px;
+			right: 20px;
+			cursor: pointer;
+		}
+	}
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #FFD15B!important;
+    color: #000 !important;
+}
+.select2-container--default .select2-results__option--selected {
+    background-color: transparent!important;
+}
+.select2-results__option[aria-selected] {
+	font-weight: 600;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    position: absolute;
+    top: 13px !important;
+    right: 1px;
+}
+
+.select2-container {
+	min-width: 100px;
+	width: 190px!important;
+}
+
+@media screen and (max-width: 1455px) {
+
+	.container {
+		.recettes {
+			margin: 2rem; 
+		}		
+	}
+} 

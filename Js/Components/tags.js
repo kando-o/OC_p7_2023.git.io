@@ -15,7 +15,6 @@ class Tags {
 		const setUstensils = new Set();
 		cards.forEach(element => element.ustensils.forEach(el=>setUstensils.add(el.toLowerCase())))
 		this.ustensils = Array.from(setUstensils)
-
 	}
 
 	builgTagsHtml () {
@@ -24,88 +23,126 @@ class Tags {
 		const appareil = document.getElementById('appareils')
 		const ustensil = document.getElementById('ustensiles')
 		const recettesHeaderTag = document.querySelector('.recettes__headerTag')
+		
 		const containerTagsDynamique = document.createElement('div')
+		containerTagsDynamique.classList.add('recettes__containerTags')
+		
+		this.tagsContainer = containerTagsDynamique
+		const btnlabelClose = document.createElement('div')
+		
+		// creat container for svg
+		const containerSvg = document.createElement('div')
+		containerSvg.classList.add('containerSvg')
 
-		containerTagsDynamique.classList.add('recettes__containerTagsDynamique')
+		// create svg search
+		const search = document.createElement('svg')
+		search.innerHTML = ` <svg class="containerSvg__item search" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5"/>
+		<line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5"/>
+		</svg>
+		`
+		// create svp close
+		const close = document.createElement('span')
+		close.innerHTML = `<span class="containerSvg__item close"> X </span>`
+		
+		// add svg in dropdown
+		const select2Selection = document.querySelectorAll('.select2-selection')
+		select2Selection.forEach( el => {
+				el.addEventListener('click', () => {
+					const select2Search = document.querySelector('.select2-search')
+					const select2Field = document.querySelectorAll('.select2-search ')
+					let buttonClose 
+
+					containerSvg.appendChild(close)
+					containerSvg.appendChild(search)
+					select2Search.appendChild(containerSvg)
+					
+					if (select2Search) {
+						
+						setTimeout(	() => {
+							buttonClose = select2Search.querySelector('.close')
+							if (buttonClose) {
+								buttonClose.addEventListener('click', () => {									
+									select2Search.querySelector('input').value = ''  
+									ingredient.innerHTML = ingredientOptions;
+								})
+							}
+						}, 1000)
+					}
+				})
+			}
+		)
+
 		recettesHeaderTag.appendChild(containerTagsDynamique)
 		
-
-
 		ingredient.innerHTML = this.ingredients.reduce((text, el) => text += `<option class="menu-item" value="ingredients ">${el}</option>`, "" )
 		appareil.innerHTML = this.appareils.reduce((text, el) => text += `<option class="menu-item" value="appareils ">${el}</option>`, "" )
 		ustensil.innerHTML = this.ustensils.reduce((text, el) => text += `<option class="menu-item" value="ustensils ">${el}</option>`, "" )
 	}
 
-	eventTag (onFilter) {
-
-		// TODO : create tags on click
-		// TODO : add cross to close the tag
-		// TODO : add event listener to call filter when tag is add
-		// TODO : add event listener to call filter when tag is removed
+	listeners (onFilter) {
 
 		const test = [...document.querySelectorAll('.recettes__itemsTag ' )]
-		const tagUser = test.forEach(el => {
-			el.onchange = (e) => {
-				console.log("->"+el.options[el.selectedIndex].text );
-				const selectTags = el.options[el.selectedIndex].text
+		
+		test.forEach(el => {
+			const type = el.getAttribute('id')
+
+			el.oninput = (e) => {
 				
-				const tagFilter = this.cards.filter(card => {
-					return card._appliances.find(a => a.toLowerCase().includes(selectTags)) ||
-					card._ingredients.find(i => i.ingredient.toLowerCase().includes(selectTags)) ||
-					card._ustensils.find(u => u.toLowerCase().includes(selectTags)) 
+				const text = el.options[el.selectedIndex].text
+				if ([...this.tagsContainer.querySelectorAll(".tag-text")].find(t=>t.textContent===text)) return
+				
+				const currentTag = document.createElement("div")
+				currentTag.classList.add("recettes__labelTag")
+
+				const tagText = document.createElement("span")
+				tagText.textContent = text
+				tagText.classList.add("tag-text")
+				tagText.setAttribute("tag-type", type)
+
+				const close = document.createElement("span")
+				close.classList.add("cursor-pointer")
+				close.textContent = "X"
+				close.addEventListener("click", ()=> {
+					currentTag.remove()
+					onFilter()
 				})
 
+				currentTag.appendChild(tagText)
+				currentTag.appendChild(close)
+				this.tagsContainer.appendChild(currentTag)
+
 				onFilter()
-				
-				console.log(tagFilter);
-				
-				return el.options[el.selectedIndex].text 			
 			}
 		})
 
-		// TODO : Refaire la liste des tags disponible dans le dropdown avec les cards restant
-		
-		console.log(tagUser);
-		
-		const tagMatch = (cards) => {
-			// const that = this
-			cards = this.cards
-			
-			return cards;
-		}
-
-		console.log( tagMatch(this.cards));
-
-		// si element choisi dans la liste de tag correspond à un element de ingredient ou apparel ou ustensil d'une des cartes alors lance moi la fonction matchCard
-		
 	}
 
-	displayTags (cards) {
+	display (cards) {
+		// hide all tags in selects
 		// traverse all cards
 		// hide tags not in cards
 	}
 
-	matchTags (filtered) {
-		// console.log(tagUser);
+	match (cards) {
 
+		if (!cards || cards.length<1) return cards
+	
+		const tags = [...this.tagsContainer.querySelectorAll(".tag-text")]
+		if (tags.length<1) return cards
 
-		// au clique sur un tag ajoute se tag dans la container tags 
-		// au clique sur la croix rouge remove element => tags
-		// si filtered == true alors lance filtered by search & tags
-		// sinon lance juste matchtags
-		// TODO : filter by tags
-		return filtered
+		tags.forEach(t=>console.log(t.getAttribute("tag-type"), t.textContent))
+		return cards.filter(card => {
+			return tags.filter( tag => {
+				const type = tag.getAttribute("tag-type")
+				const tagName = tag.textContent.toLowerCase()
+				if (type==="ingredients") return card._ingredients.find(i => i.ingredient.toLowerCase().includes(tagName))
+				if (type==="appareils") return card._appliances.find(a => a.toLowerCase().includes(tagName))
+				if (type==="ustensiles") return card._ustensils.find(u => u.toLowerCase().includes(tagName)) 
+			}).length === tags.length
+		})
 	}
 
-	matchInputTags (filtered) {
-
-		return filtered
-
-	}
 }
-
-// ingredient 
-// appareils
-// Ustensils
 
 export default Tags

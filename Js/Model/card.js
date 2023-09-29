@@ -14,8 +14,10 @@ export class Ingredient {
 	}
 
 	toHtml () {
-		return `<p>${this._name}</p>
-		<p>${this._quantity} ${this._unit}</p>`
+		return `<div class='recettes__contentRecettes'>
+			<p class='recettes__pName'>${this._name}</p>
+			<div><recettes__ class='recettes__PquantityPunit'>${this._quantity} ${this._unit} </recettes__></div>
+		</div>`
 	}
 
 	/**
@@ -80,17 +82,15 @@ export default class Card  {
 					<p>Recette</p>
 					<p>${this._description}</p>
 					
-					<h4>Ingredients</h4>
+					<p>Ingredients</p>
 
 					<div class="recettes__itemsIngredients">
-						<h5>
 							${
 								this._ingredients.map( i => {
 									return i.toHtml()
-								})
-								.join('')
+								}).join('')
+								
 							}
-						</h5>
 					</div>
 				</figcaption>
 			</figure>			
