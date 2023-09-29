@@ -7,5 +7,4 @@ export const getData = () => {
 	// Chemin vers le data
 	return fetch(API.URL + API.request_data)
 	.then(res => {return res.json()})
-	// .then(data => {return console.log(data)} )
 }
