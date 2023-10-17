@@ -52,7 +52,6 @@ window.onload = () => {
 			const finalCards = Search.match(filteredCards, input)
 			
 			displayCards(finalCards)
-			tags.display(finalCards)
 			cardsCounter(finalCards)
 		}
 

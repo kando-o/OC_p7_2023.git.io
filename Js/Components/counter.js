@@ -5,5 +5,3 @@ export const cardsCounter = (cards) => {
 	recipesCounterContainer.querySelector(".recipeText").textContent = "recette"+(count>1?"s":"")
 	return count
 }
-
-const arrowFunction = (count) => {return count > 1 ? "s" : '' }
