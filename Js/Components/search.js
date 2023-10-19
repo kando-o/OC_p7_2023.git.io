@@ -33,12 +33,20 @@ export default class Search {
 		if (!inputUser || inputUser.length < 3 || !cards || cards.length<1) return cards
 
 		const cardFilter = [];
-		for (const card of cards) {
+		const lowerInputUser = inputUser.toLowerCase();
 
-			const lowerInputUser = inputUser.toLowerCase();
+		for (let i = 0; i < cards.length; i++) {
+			const card = cards[i];
 			const isNameMatch = card.name.toLowerCase().includes(lowerInputUser);
 			const isDescriptionMatch = card.description.toLowerCase().includes(lowerInputUser);
-			const isIngredientMatch = card.ingredients.some(i => i.ingredient.toLowerCase().includes(lowerInputUser));
+			
+			let isIngredientMatch = false;
+			for (let j = 0; j < card.ingredients.length; j++) {
+				if (card.ingredients[j].ingredient.toLowerCase().includes(lowerInputUser)) {
+				isIngredientMatch = true;
+				break;
+				}
+			}
 
 			if (isNameMatch || isDescriptionMatch || isIngredientMatch) {
 				cardFilter.push(card);
