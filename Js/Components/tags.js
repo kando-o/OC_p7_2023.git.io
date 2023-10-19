@@ -64,20 +64,39 @@ class Tags {
 							if (buttonClose) {
 								buttonClose.addEventListener('click', () => {									
 									select2Search.querySelector('input').value = ''  
-									ingredient.innerHTML = ingredientOptions;
 								})
 							}
-						}, 1000)
+						}, 2000)
 					}
 				})
 			}
 		)
+		
+		this.ingredients.map((el) => {
+			const selectIngredient = document.querySelector('#ingredients')
+			const option = document.createElement('option')
+			option.innerHTML = `<option class="menu-item removed" value="ingredients ">${el}</option>`
+			selectIngredient.appendChild(option)		
+		})
+
+		this.appareils.map((el) => {
+			const selectappareil = document.querySelector('#appareils')
+
+			const option = document.createElement('option')
+			option.innerHTML = `<option class="menu-item removed" value="ingredients ">${el}</option>`
+			selectappareil.appendChild(option)		
+		})
+
+		this.ustensils.map((el) => {
+			const selectustensiles = document.querySelector('#ustensiles')
+
+			const option = document.createElement('option')
+			option.innerHTML = `<option class="menu-item removed" value="ingredients ">${el}</option>`
+			selectustensiles.appendChild(option)		
+		})
 
 		recettesHeaderTag.appendChild(containerTagsDynamique)
 		
-		ingredient.innerHTML = this.ingredients.reduce((text, el) => text += `<option class="menu-item" value="ingredients ">${el}</option>`, "" )
-		appareil.innerHTML = this.appareils.reduce((text, el) => text += `<option class="menu-item" value="appareils ">${el}</option>`, "" )
-		ustensil.innerHTML = this.ustensils.reduce((text, el) => text += `<option class="menu-item" value="ustensils ">${el}</option>`, "" )
 	}
 
 	listeners (onFilter) {
@@ -121,8 +140,8 @@ class Tags {
 	match (cards) {
 
 		if (!cards || cards.length<1) return cards
-	
 		const tags = [...this.tagsContainer.querySelectorAll(".tag-text")]
+
 		if (tags.length<1) return cards
 
 		tags.forEach(t=>console.log(t.getAttribute("tag-type"), t.textContent))
@@ -130,9 +149,10 @@ class Tags {
 			return tags.filter( tag => {
 				const type = tag.getAttribute("tag-type")
 				const tagName = tag.textContent.toLowerCase()
-				if (type==="ingredients") return card._ingredients.find(i => i.ingredient.toLowerCase().includes(tagName))
+				if (type==="ingredients") return card._ingredients.find(i => i.ingredient.toLowerCase().includes(tagName)) 
 				if (type==="appareils") return card._appliances.find(a => a.toLowerCase().includes(tagName))
 				if (type==="ustensiles") return card._ustensils.find(u => u.toLowerCase().includes(tagName)) 
+
 			}).length === tags.length
 		})
 	}
