@@ -6,9 +6,9 @@ import Search from "./Components/search.js";
 
 // For the dropdown
 $(document).ready(function() {
-    $('.js-example-basic-single').select2({
+	/*$('.js-example-basic-single').select2({
 		width : 'resolve'
-	});
+	});*/
 });
 
 const parent = document.querySelector('.recettes__galerieCards')
@@ -26,8 +26,6 @@ window.onload = () => {
 			return card
 		})
 		
-		cardsCounter(cards)
-		
 		const search = new Search(cards)
 		const tags = new Tags(cards)
 
@@ -40,19 +38,39 @@ window.onload = () => {
 				
 				cards.forEach(el => el.element.classList.remove('hidden'))
 				
-			} else {
+			} else if (filtered.length>0) {
 				cards.forEach(el => el.element.classList.add('hidden'))
 				filtered.forEach(el => el.element.classList.remove('hidden'))
+			} else {
+				cards.forEach(el => el.element.classList.add('hidden'))
+				// draw text
 			}
+		}
+		const updateInterface = (list) => {
+			const recettesGalerieCards = document.getElementById('no-recipe')
+			if (list.length === 0) {
+				const inputTopPageSearch = document.querySelector('.topPage__inputSearch').value.toUpperCase()
+				
+				console.log(inputTopPageSearch);
+				recettesGalerieCards.classList.add('counterCardText')
+				recettesGalerieCards.textContent = `Aucune recette ne contient  "${inputTopPageSearch}" vous pouvez chercher 
+				« tarte aux pommes », «poisson»  etc.`
+			} else {
+				recettesGalerieCards.textContent = ""
+			}
+			tags.refreshLists(list)
+			tags.builgTagsHtml()
+			tags.listeners(onFilter)
 		}
 
 		const onFilter = () => {
+			console.log("filter")
 			const input = document.querySelector('.topPage__inputSearch').value
 			const filteredCards = tags.match(cards)
 			const finalCards = Search.match(filteredCards, input)
-			
 			displayCards(finalCards)
 			cardsCounter(finalCards)
+			updateInterface(finalCards)
 		}
 
 		search.listener(onFilter)

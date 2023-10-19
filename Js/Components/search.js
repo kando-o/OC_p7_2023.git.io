@@ -23,6 +23,7 @@ export default class Search {
 	 * @returns cardFilter | Card filter by the user value
 	 */
 	static match (cards, inputUser) {
+
 		if (!inputUser || inputUser.length < 3 || !cards || cards.length<1) return cards
 
 		const cardFilter = cards.filter(card => {

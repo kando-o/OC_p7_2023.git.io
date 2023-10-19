@@ -220,6 +220,14 @@ body {
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
 }
+.container .recettes .counterCardText {
+  color: red;
+  margin: 0 auto;
+  font-size: 20px;
+}
+.container .recettes .counterCardText span {
+  font-weight: 900;
+}
 
 .containerSvg {
   position: absolute;
