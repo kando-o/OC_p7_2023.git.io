@@ -4,13 +4,6 @@ import Card from "./Model/card.js";
 import Tags from "./Components/tags.js";
 import Search from "./Components/search.js";
 
-// For the dropdown
-$(document).ready(function() {
-	/*$('.js-example-basic-single').select2({
-		width : 'resolve'
-	});*/
-});
-
 const parent = document.querySelector('.recettes__galerieCards')
 
 window.onload = () => {
@@ -43,7 +36,6 @@ window.onload = () => {
 				filtered.forEach(el => el.element.classList.remove('hidden'))
 			} else {
 				cards.forEach(el => el.element.classList.add('hidden'))
-				// draw text
 			}
 		}
 		const updateInterface = (list) => {
@@ -51,9 +43,8 @@ window.onload = () => {
 			if (list.length === 0) {
 				const inputTopPageSearch = document.querySelector('.topPage__inputSearch').value.toUpperCase()
 				
-				console.log(inputTopPageSearch);
 				recettesGalerieCards.classList.add('counterCardText')
-				recettesGalerieCards.textContent = `Aucune recette ne contient  "${inputTopPageSearch}" vous pouvez chercher 
+				recettesGalerieCards.textContent = `Aucune recette ne contient "${inputTopPageSearch}" vous pouvez chercher 
 				« tarte aux pommes », «poisson»  etc.`
 			} else {
 				recettesGalerieCards.textContent = ""
@@ -64,7 +55,6 @@ window.onload = () => {
 		}
 
 		const onFilter = () => {
-			console.log("filter")
 			const input = document.querySelector('.topPage__inputSearch').value
 			const filteredCards = tags.match(cards)
 			const finalCards = Search.match(filteredCards, input)

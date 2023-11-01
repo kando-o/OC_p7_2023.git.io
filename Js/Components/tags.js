@@ -16,11 +16,7 @@ class Tags {
 		const ustensil = document.getElementById('ustensiles')
 		const recettesHeaderTag = document.querySelector('.recettes__headerTag')
 		
-		
-		const btnlabelClose = document.createElement('div')
-		
-		this.buildInputItems()
-
+		// For the dropdown
 		$('.js-example-basic-single').select2({
 			width : 'resolve'
 		}).empty();
@@ -54,7 +50,6 @@ class Tags {
 	}
 
 	buildInputItems() {
-
 		// creat container for svg
 		const containerSvg = document.createElement('div')
 		containerSvg.classList.add('containerSvg')
@@ -72,27 +67,22 @@ class Tags {
 		
 		// add svg in dropdown
 		const select2Selection = document.querySelectorAll('.select2-selection')
-		// const selects = [...document.querySelectorAll(".recettes__itemsTag")]
 		select2Selection.forEach( (el, index) => {
 			el.addEventListener('click', () => {
-				
 				containerSvg.appendChild(close)
 				containerSvg.appendChild(search)
 				
-				setTimeout(	() => {
-					const select2Search = document.querySelector('.select2-search')
-					if (select2Search) {
-						select2Search.appendChild(containerSvg)
-						const buttonClose = select2Search.querySelector('.close')
-						if (buttonClose) {
-							buttonClose.addEventListener('click', () => {
-								select2Search.querySelector('input').value = ''
-								// $(selects[index]).val("")
-							})
-						}
-					}
-				}, 100)
+				const select2Search = document.querySelector('.select2-search')
+				if (select2Search) {
+					select2Search.appendChild(containerSvg)
+					const buttonClose = select2Search.querySelectorAll('.close')
 
+					buttonClose.forEach(element => {
+						element.addEventListener('click', () => {
+							select2Search.querySelector('input').value = ''
+						})
+					});
+				}
 			})
 		})
 	}
@@ -112,7 +102,7 @@ class Tags {
 	}
 
 	listeners (onFilter) {
-		const test = [...document.querySelectorAll('.recettes__itemsTag ' )]
+		const test = [...document.querySelectorAll('.recettes__itemsTag')]
 		const lists = [
 			{title: "ingredients", data: this.ingredients},
 			{title: "appareils", data: this.appareils},
@@ -120,6 +110,7 @@ class Tags {
 		]
 		test.forEach((el,index) => {
 			const type = el.getAttribute('id')
+			this.buildInputItems()
 
 			el.oninput = (e) => {
 				const text = el.options[el.selectedIndex].text
@@ -137,7 +128,6 @@ class Tags {
 				close.classList.add("cursor-pointer")
 				close.textContent = "X"
 				close.addEventListener("click", ()=> {
-					console.log("CLICK CLOSE")
 					currentTag.remove()
 					const activeTags = [...this.tagsContainer.querySelectorAll(".tag-text")].map(t=>t.textContent)
 					$(el).select2().empty()
@@ -146,7 +136,6 @@ class Tags {
 					el.appendChild(option)
 					option.disabled = true
 					$(el).select2({data:lists[index].data.filter(i=>!activeTags.includes(i)).map((i,j)=>({id:j+1, text:i}))})
-					this.buildInputItems()
 					onFilter()
 				})
 				
@@ -163,11 +152,9 @@ class Tags {
 				el.appendChild(option)
 				option.disabled = true
 				$(el).select2({data:lists[index].data.filter(i=>!activeTags.includes(i)).map((i,j)=>({id:j+1, text:i}))})
-				this.buildInputItems()
 				onFilter()
 			}
 		})
-
 	}
 
 	match (cards) {
@@ -176,20 +163,6 @@ class Tags {
 		const tags = [...this.tagsContainer.querySelectorAll(".tag-text")]
 
 		if (tags.length<1) return cards
-
-		/*
-		const dropdownsIngredient = document.getElementById('select-ingredients')
-		const removed = document.querySelectorAll('.menu-item .removed')
-		const selectedOption = dropdownsIngredient.options[dropdownsIngredient.selectedIndex]
-		
-		removed.forEach(el => {
-			el.addEventListener('click', () => {
-				console.log("click");
-			})
-		})
-
-		console.log(selectedOption);
-		*/
 
 		tags.forEach(t=>console.log(t.getAttribute("tag-type"), t.textContent))
 		return cards.filter(card => {
@@ -200,14 +173,9 @@ class Tags {
 				if (type==="appareils") return card._appliances.find(a => a.toLowerCase().includes(tagName))
 				if (type==="ustensiles") return card._ustensils.find(u => u.toLowerCase().includes(tagName)) 
 
-				
-
 			}).length === tags.length
 		})
-
-		
 	}
-
 }
 
 export default Tags

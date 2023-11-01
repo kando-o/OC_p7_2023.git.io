@@ -242,6 +242,9 @@ body {
   right: 20px;
   cursor: pointer;
 }
+.containerSvg__item.search {
+  height: 12px;
+}
 
 .cursor-pointer {
   cursor: pointer;
