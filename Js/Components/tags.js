@@ -22,7 +22,7 @@ class Tags {
 		}).empty();
 
 		const selectIngredient = document.querySelector('#ingredients')
-		selectIngredient.innerHTML = `<option class="ingredients" disabled value="ingredients">Ingredients</option>`
+		selectIngredient.innerHTML = `<option class="ingredients" value="ingredients">Ingredients</option>`
 		this.ingredients.map((el) => {
 			const option = document.createElement('option')
 			option.innerHTML = `<option class="menu-item removed" value="ingredients ">${el}</option>`
@@ -30,7 +30,7 @@ class Tags {
 		})
 
 		const selectappareil = document.querySelector('#appareils')
-		selectappareil.innerHTML = `<option class="appareils" disabled value="appareils">Appareils</option>`
+		selectappareil.innerHTML = `<option class="appareils" value="appareils">Appareils</option>`
 		this.appareils.map((el) => {
 			const option = document.createElement('option')
 			option.innerHTML = `<option class="menu-item removed" value="ingredients ">${el}</option>`
@@ -38,7 +38,7 @@ class Tags {
 		})
 
 		const selectustensiles = document.querySelector('#ustensiles')
-		selectustensiles.innerHTML = `<option class="ustensiles" disabled value="ustensiles">Ustensils</option>`
+		selectustensiles.innerHTML = `<option class="ustensiles" value="ustensiles">Ustensils</option>`
 		this.ustensils.map((el) => {
 			const option = document.createElement('option')
 			option.innerHTML = `<option class="menu-item removed" value="ingredients ">${el}</option>`
