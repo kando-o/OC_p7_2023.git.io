@@ -82,23 +82,43 @@ class Tags {
 
 		recettesHeaderTag.appendChild(containerTags)
 		
-		let ingredientOptions = "";
+		const ingredientOptions = document.querySelector('#ingredients');
+		ingredientOptions.innerHTML = `<option class="menu-item" value="ingredients">Ingredients</option>`
 		for (const el of this.ingredients) {
-			ingredientOptions += `<option class="menu-item" value="ingredients">${el}</option>`;
+			const option = document.createElement('option')
+			option.innerHTML += `<option class="menu-item" removed value="ingredients">${el}</option>`;
+			 
+			ingredientOptions.appendChild(option)
 		}
-		ingredient.innerHTML = ingredientOptions;
 
-		let appareilOptions = "";
+		const appareilOptions = document.querySelector('#appareils');
+		appareilOptions.innerHTML = `<option class="menu-item" value="appareils">Appareils</option>`
 		for (const el of this.appareils) {
-			appareilOptions += `<option class="menu-item" value="appareils">${el}</option>`;
+			const option = document.createElement('option')
+			option.innerHTML += `<option class="menu-item" removed value="ingredients">${el}</option>`;
+			 
+			appareilOptions.appendChild(option)
 		}
-		appareil.innerHTML = appareilOptions;
 
-		let ustensilOptions = "";
+		const ustensilOptions = document.querySelector('#ustensiles');
+		ustensilOptions.innerHTML = `<option class="menu-item" value="ustensils">Ustensils</option>`
 		for (const el of this.ustensils) {
-			ustensilOptions += `<option class="menu-item" value="ustensils">${el}</option>`;
+			const option = document.createElement('option')
+			option.innerHTML += `<option class="menu-item" removed value="ustensils">${el}</option>`;
+			 
+			ustensilOptions.appendChild(option)
 		}
-		ustensil.innerHTML = ustensilOptions;	
+
+		// for (const el of this.appareils) {
+		// 	appareilOptions += `<option class="menu-item" value="appareils">${el}</option>`;
+		// }
+		// appareil.innerHTML = appareilOptions;
+
+		// // let ustensilOptions = "";
+		// for (const el of this.ustensils) {
+		// 	ustensilOptions += `<option class="menu-item" value="ustensils">${el}</option>`;
+		// }
+		// ustensil.innerHTML = ustensilOptions;	
 	}
 
 	listeners (onFilter) {
